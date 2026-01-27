@@ -69,8 +69,10 @@ logs
 .ipynb_checkpoints
 
 # ML Models (exclude from git to avoid large files)
-*.pkl
-*.joblib
+# *.pkl
+# *.joblib
+# Temporarily include model for Heroku deployment
+!backend/RandomForest_model.pkl
 
 # Docker
 .dockerignore

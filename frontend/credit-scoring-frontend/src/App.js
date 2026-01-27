@@ -10,8 +10,6 @@ const CreditScoringApp = () => {
   const [formData, setFormData] = useState({
     creditAmount: '5000',
     duration: '24',
-    creditAmount: '5000',
-    duration: '24',
     age: '35',
     checkingStatus: 'no_account', // Neutre
     creditHistory: 'existing_paid_back',
