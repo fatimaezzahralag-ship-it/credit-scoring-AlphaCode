@@ -61,6 +61,10 @@ lerna-debug.log*
 /frontend/credit-scoring-frontend/build
 /frontend/credit-scoring-frontend/dist
 
+# Vercel
+.vercel
+.vercelignore
+
 # Logs
 logs
 *.log

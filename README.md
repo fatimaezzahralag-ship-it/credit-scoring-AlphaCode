@@ -2,10 +2,7 @@
 
 A full-stack AI-powered credit scoring application that leverages Random Forest machine learning to predict credit risk based on the German Credit Data dataset. This production-grade system features real-time risk assessment, model explainability, and comprehensive governance tracking.
 
-## 🚀 Live Demo
 
-- **Frontend (Vercel):** https://credit-scoring-omega.vercel.app
-- **Backend API (Heroku):** https://credit-alpha-8450.herokuapp.com
 - **GitHub Repository:** https://github.com/fatimaezzahralag-ship-it/credit-scoring-AlphaCode
 
 ## 🛠 Tech Stack
@@ -30,8 +27,6 @@ A full-stack AI-powered credit scoring application that leverages Random Forest 
 
 ### DevOps
 - **Docker** - Containerization
-- **Heroku** - Backend deployment
-- **Vercel** - Frontend deployment
 - **GitHub** - Version control
 
 ## 📋 Features
@@ -45,29 +40,6 @@ A full-stack AI-powered credit scoring application that leverages Random Forest 
 
 ## 🏗 Project Structure
 
-```
-credit_scoring_project/
-├── backend/
-│   ├── main.py              # FastAPI application
-│   ├── pipeline.py          # ML pipeline classes
-│   ├── encoding_maps.py     # Data encoding logic
-│   ├── train.py             # Model training script
-│   ├── RandomForest_model.pkl # Trained model
-│   ├── requirements.txt     # Python dependencies
-│   ├── Procfile            # Heroku deployment config
-│   └── Dockerfile          # Backend container
-├── frontend/
-│   ├── src/
-│   │   ├── App.js          # Main React component
-│   │   ├── App.css         # Custom styles
-│   │   └── index.css       # Tailwind directives
-│   ├── package.json        # Node dependencies
-│   ├── Dockerfile          # Frontend container
-│   └── public/             # Static assets
-├── docker-compose.yml      # Local development
-├── .gitignore             # Git ignore rules
-└── README.md              # This file
-```
 
 ## 🚀 Installation & Setup
 
@@ -86,9 +58,9 @@ cd credit-scoring-AlphaCode
 
 2. **Backend Setup**
 ```bash
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 cd backend
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
@@ -217,15 +189,11 @@ GET /model-info
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 👨‍💻 Author
 
 **fatimaezzahralag-ship-it**
 - GitHub: [@fatimaezzahralag-ship-it](https://github.com/fatimaezzahralag-ship-it)
-- LinkedIn: [Your LinkedIn Profile]
+- LinkedIn: [Lagdem Fatima_E](https://linkedin.com/in/lagdem-fatima-e)
 
 ## 🙏 Acknowledgments
 

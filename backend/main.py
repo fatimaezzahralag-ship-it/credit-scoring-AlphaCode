@@ -20,19 +20,12 @@ app.add_middleware(
 )
 pipeline = joblib.load("./RandomForest_model.pkl")
 class CreditApplication(BaseModel):
-
     checking_status: str
     duration: int = Field(..., gt=0, le=120, description="Duration must be between 1 and 120 months")
     credit_amount: float = Field(..., gt=0, le=100000, description="Credit amount must be positive and realistic")
     age: int = Field(..., gt=18, le=100, description="Age must be valid adult age")
     credit_history: str
     purpose: str
-    # Labels métier, pas de codes numériques !
-    checking_status: str
-    duration: int
-    credit_history: str
-    purpose: str
-    credit_amount: float
     savings: str
     employment: str
     installment_rate: int
@@ -40,7 +33,6 @@ class CreditApplication(BaseModel):
     other_debtors: str
     residence_since: int
     property: str
-    age: int
     other_installment: str
     housing: str
     existing_credits: int
@@ -61,7 +53,6 @@ async def predict(application: CreditApplication):
     timestamp = datetime.now().isoformat()
     try:
         print(f"[{timestamp}] Request {request_id}: Received application")
-        
         # Encoder l'application avec le mapping centralisé
         app_dict = application.dict()
         encoded_app = encode_application(app_dict)
@@ -96,7 +87,6 @@ async def predict(application: CreditApplication):
         prediction = pipeline.predict(df)[0]
         probability = pipeline.predict_proba(df)[0]
         print(f"[{timestamp}] Request {request_id}: Prediction: {prediction}, Probability: {probability}")
-        
         bad_prob = probability[1]
         # Score entre 300 et 850
         score = int(850 - (bad_prob * 550))
@@ -160,8 +150,6 @@ async def explain(application: CreditApplication):
             
         if encoded_app['age'] < 25:
             risk_factors.append("Young applicant")
-        
-        # Limiter à 3 facteurs principaux
         top_risk_factors = risk_factors[:3] if risk_factors else ["No major risk factors identified"]
         return {
             'request_id': request_id,
